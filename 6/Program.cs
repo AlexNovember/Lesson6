@@ -22,11 +22,11 @@ Console.Write("Введи количество чисел: "); // Ввод ко�
 int m = Convert.ToInt32(Console.ReadLine());
 int[] MassiveOfNumbers = new int[m];
 
-void InputNumbers(int m)
+void InputNumbers(int m)   // Ввод цифр в массив
 {
 for (int i = 0; i < m; i++)
   {
-    Console.Write($"Введи {i+1} число: ");   // Ввод цифр в массив
+    Console.Write($"Введи {i+1} число: ");   
     MassiveOfNumbers[i] = Convert.ToInt32(Console.ReadLine());
   }
 }
@@ -40,7 +40,7 @@ int CompareNumbers(int[] MassiveOfNumbers)  // Сравниваем цифры �
   }
   return count;
 }
-void PrintArray(int[] numbers)  // Вывод массива
+void PrintArray(int[] numbers)  // Готовим вывод массива, убираем последнюю запятую
 {
         for(int i = 0; i < MassiveOfNumbers.Length; i++)
     {
@@ -52,8 +52,8 @@ void PrintArray(int[] numbers)  // Вывод массива
         Console.WriteLine();
 }
 
-
+//Выводим мнформацию
 InputNumbers(m);
 Console.Write("Наш массив: ");
 PrintArray(MassiveOfNumbers);
-Console.WriteLine($"Чисел больше нуля: {CompareNumbers(MassiveOfNumbers)} ");
+Console.WriteLine($"Чисел больше нуля => {CompareNumbers(MassiveOfNumbers)} ");
