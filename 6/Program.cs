@@ -51,7 +51,9 @@ void PrintArray(int[] numbers)
     }
         Console.WriteLine();
 }
+
+
 InputNumbers(m);
 Console.Write("Наш массив: ");
 PrintArray(MassiveOfNumbers);
-Console.WriteLine($"Чисел больше больше нуля: {Comparison(MassiveOfNumbers)} ");
+Console.WriteLine($"Чисел больше нуля: {Comparison(MassiveOfNumbers)} ");
