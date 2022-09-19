@@ -62,55 +62,61 @@
 
 
 
-Задача 43: Напишите программу, которая найдёт точку пересечения двух прямых, 
-заданных уравнениями y = k1 * x + b1, y = k2 * x + b2; 
-значения b1, k1, b2 и k2 задаются пользователем.
-b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5)
+// Задача 43: Напишите программу, которая найдёт точку пересечения двух прямых, 
+// заданных уравнениями y = k1 * x + b1, y = k2 * x + b2; 
+// значения b1, k1, b2 и k2 задаются пользователем.
+// b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5)
 
 Console.Clear();
-double[,] Point = new double[2, 2];
-double[] IntersectionPoint = new double[2];
+double[,] Point = new double[2, 2];  //задаем формат точек (x, y до 2-x)
+double[] IntersectionPoint = new double[2]; //точка пересечения
 
-void InputCoefficients()
+void InputCoefficients() // ввод значений - точки каждой прямой
 {
   for (int i = 0; i < Point.GetLength(0); i++)
   {
-    Console.Write($"Введите точки приямой {i+1}:\n");
+    Console.Write($"Введите точки {i+1}-ой прямой:\n");
     for (int j = 0; j < Point.GetLength(1); j++)
     {
-      if(j==0) Console.Write($"Введите коэффициент b{i+1}: ");
-      else Console.Write($"Введите коэффициент k{i+1}: ");
+      if(j==0) Console.Write($"Введите точку b{i+1}: ");
+      else Console.Write($"Введите точку k{i+1}: ");
       Point[i,j] = Convert.ToInt32(Console.ReadLine());
     }
   }
 }
 
-double[] Decision(double[,] Point)
-{
-  IntersectionPoint[0] = (Point[0,1] - Point[0,0]) / (Point[1,0] - Point[1,1]);
-  IntersectionPoint[1] = IntersectionPoint[0] * Point[1,0] + Point[0,0];
+double[] Decision(double[,] Point) // считаем
+  // x = (b2 - b1)/(k1 - k2);
+  // y = k1 * x + b1;
+  // b1 = 0,0 b2 = 1,0 k1 = 0,1 k2 = 1,1
+  {
+  IntersectionPoint[0] = (Point[1,0] - Point[0,0]) / (Point[0,1] - Point[1,1]);
+  IntersectionPoint[1] = Point[0,1] * IntersectionPoint[0] + Point[0,0];
   return IntersectionPoint;
 }
 
-void OutputResponse(double[,] Point)
+void Output(double[,] Point) // совпадения
+// k1 = k2 & b1 = b2 Прямые совпадают
+// k1 = k2 Прямые параллельны
+// иначе вывод точки пересечения
 {
-  if (Point[0,0] == Point[1,0] && Point[0,1] == Point[1,1]) 
+  if (Point[0,1] == Point[1,1] && Point[0,0] == Point[1,0]) 
   {
-    Console.Write($"\nПрямые совпадают");
+    Console.Write($"Прямые совпадают");
   }
-  else if (Point[0,0] == Point[1,0] && Point[0,1] != Point[1,1]) 
+  else if (Point[0,1] == Point[1,1]) 
   {
-    Console.Write($"\nПрямые параллельны");
+    Console.Write($"Прямые параллельны");
   }
   else 
   {
     Decision(Point);
-    Console.Write($"\nТочка пересечения прямых: ({IntersectionPoint[0]}, {IntersectionPoint[1]})");
+    Console.Write($"Точка пересечения прямых: ({IntersectionPoint[0]}, {IntersectionPoint[1]})");
   }
 }
 
 InputCoefficients();
-OutputResponse(Point);
+Output(Point);
 
 
 // Console.WriteLine("введите значение b1");
