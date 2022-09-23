@@ -51,47 +51,69 @@
 // 17 -> такого числа в массиве нет
 
 
+     
+            // Console.Write("Введите строку: ");
+            // int position1 = Convert.ToInt32(Console.ReadLine()) - 1;
+            // Console.Write("Введите столбец: ");
+            // int position2 = Convert.ToInt32(Console.ReadLine()) - 1;
+            // int n = 3; // размер массива
+            // int m = 4; // размер массива
+            // Random array = new Random();
+            // int[,] arr = new int[n, m];
+            // Console.WriteLine("Наш массив:");
+            // for (int i = 0; i < arr.GetLength(0); i++)
+            // {
+            //     for (int j = 0; j < arr.GetLength(1); j++)
+            //     {
+            //         arr[i, j] = array.Next(0, 9);
+            //         Console.Write("{0,2} ", arr[i, j]);
+            //     }
+            //     Console.WriteLine();
+            // }
+            // if (position1 < 0 | position1 > arr.GetLength(0) - 1 | position2 < 0 | position2 > arr.GetLength(1) - 1)
+            // {
+            //     Console.WriteLine("Такого числа в массиве нет");
+            // }
+            // else
+            // {
+            //     Console.WriteLine($"Значение элемента массива строки {position1} столбца {position2} = {0} ", arr[position1, position2]);
+            // }
+            
+ 
 
-Console.WriteLine("введите номер строки");
-int n = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("введите номер столбца");
-int m = Convert.ToInt32(Console.ReadLine());
-int [,] numbers = new int [10,10];
-FillArrayRandomNumbers(numbers);
+//  int[,] someArray = new int[10, 10];
+//     int rows = someArray.GetUpperBound(0) + 1;
+//     int columns = someArray.GetUpperBound(1) + 1;
+//     Random rand = new Random();
+//     for (int i = 0; i < rows; i++)
+//     {
+//         for (int j = 0; j < columns; j++)
+//         {
+//             someArray[i, j] = rand.Next(-100, 100);
+//             Console.Write("{0,4}", someArray[i, j]);
+//         }
+//         Console.WriteLine();
+//     }
+//     for (int i = 0; i < columns; i++)
+//     {
+//         int tmp = someArray[1,  i];
+//         someArray[1, i] = someArray[3, i];
+//         someArray[3, i] = tmp;
+ 
+//     }
+//     for (int i = 0; i < rows; i++)
+//     {
+//         int tmp = someArray[i, 2];
+//         someArray[i, 2] = someArray[i, columns - 1];
+//         someArray[i, columns - 1] = tmp;
+//     }
+//     Console.WriteLine("Transformed array: ");
+//     for (int i = 0; i < rows; i++)
+//     {
+//         for (int j = 0; j < columns; j++)
+//         {
+//             Console.Write("{0,4}", someArray[i, j]);
+//         }
+//         Console.WriteLine();
+//     }
 
-if (n > numbers.GetLength(0) || m > numbers.GetLength(1))
-{
-    Console.WriteLine("такого элемента нет");
-}
-else
-{
-    Console.WriteLine($"значение элемента {n} строки и {m} столбца равно {numbers[n-1,m-1]}");
-}
-
-PrintArray(numbers);
-
-void FillArrayRandomNumbers(int[,] array)
-{
-    for (int i = 0; i < array.GetLength(0); i++)
-        {        
-            for (int j = 0; j < array.GetLength(1); j++)
-            {
-                array [i,j] = new Random().Next(-100, 100)/10;
-            }   
-        }
-}
-
-void PrintArray(int[,] array)
-{
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        Console.Write("[ ");
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            Console.Write(array[i,j] + " ");
-        }   
-        Console.Write("]");
-        Console.WriteLine(""); 
-    }
-
-        
