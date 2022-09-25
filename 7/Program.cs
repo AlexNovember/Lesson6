@@ -51,7 +51,7 @@
 // 17 -> такого числа в массиве нет
 
 
-     
+            // Console.Clear();
             // Console.Write("Введите строку: ");
             // int position1 = Convert.ToInt32(Console.ReadLine()) - 1;
             // Console.Write("Введите столбец: ");
@@ -88,7 +88,7 @@
 // 8 4 2 4
 // Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
 
-
+// Console.Clear();
 // Console.Write("Введите количество строк массива: ");
 // int n = Convert.ToInt32(Console.ReadLine());
 // Console.Write("Введите количество столбцов массива: ");
@@ -136,6 +136,10 @@
 //     }
 // }
 
+
+
+
+
 // Задача HARD SORT.
 // Задайте двумерный массив из целых чисел. 
 // Количество строк и столбцов задается с клавиатуры. 
@@ -149,62 +153,62 @@
 // 5 7 9 10
 
 
-// Console.Clear();
-// int[,] Input()
+Console.Clear();
+int[,] Input()
         
-//         {
-//             Console.Write("Введите размерность массива (N x M): \nN = ");
-//             int n = Convert.ToInt32(Console.ReadLine());
-//             Console.Write("M = ");
-//             int m = Convert.ToInt32(Console.ReadLine());
+        {
+            Console.Write("Введите размерность массива (N x M): \nN = ");
+            int n = Convert.ToInt32(Console.ReadLine());
+            Console.Write("M = ");
+            int m = Convert.ToInt32(Console.ReadLine());
             
             
-//             int[,] array = new int[n, m];
-//             Random rnd = new Random();
-//             for (int i = 0; i < array.GetLength(0); i++)
-//                 for (int j = 0; j < array.GetLength(1); j++)
-//                     array[i, j] = rnd.Next(0, 20);
-//             return array;
-//         }
+            int[,] array = new int[n, m];
+            Random rnd = new Random();
+            for (int i = 0; i < array.GetLength(0); i++)
+                for (int j = 0; j < array.GetLength(1); j++)
+                    array[i, j] = rnd.Next(0, 20);
+            return array;
+        }
         
         
-//         void printArray(int[,] array)
-//         {
-//             for (int i = 0; i < array.GetLength(0); i++, Console.WriteLine())
-//                 for (int j = 0; j < array.GetLength(1); j++)
-//                     Console.Write("{0,5}", array[i, j]);
-//         }
-//         static void Reverse(int[,] array)
-//         {
-//             int Temp;
-//             for (int k = 0; k < array.GetLength(0); k++)
-//                 for (int i = 0; i < array.GetLength(1) - 1; i++)
-//                     for (int j = i + 1; j < array.GetLength(1); j++)
-//                         if (array[k, j] < array[k, i])
-//                         {
-//                             Temp = array[k, j];
-//                             array[k, j] = array[k, i];
-//                             array[k, i] = Temp;
-//                         }
+        void printArray(int[,] array)
+        {
+            for (int i = 0; i < array.GetLength(0); i++, Console.WriteLine())
+                for (int j = 0; j < array.GetLength(1); j++)
+                    Console.Write("{0,5}", array[i, j]);
+        }
+        void Reverse(int[,] array)
+        {
+            int Temp;
+            for (int k = 0; k < array.GetLength(0); k++)
+                for (int i = 0; i < array.GetLength(1) - 1; i++)
+                    for (int j = i + 1; j < array.GetLength(1); j++)
+                        if (array[k, j] < array[k, i])
+                        {
+                            Temp = array[k, j];
+                            array[k, j] = array[k, i];
+                            array[k, i] = Temp;
+                        }
  
-//             for (int k = 0; k < array.GetLength(1); k++)
-//                 for (int j = 0; j < array.GetLength(0) - 1; j++)
-//                     for (int i = j + 1; i < array.GetLength(0); i++)
-//                         if (array[i, k] < array[j, k])
-//                         {
-//                             Temp = array[i, k];
-//                             array[i, k] = array[j, k];
-//                             array[j, k] = Temp;
-//                         }
-//         }
+            for (int k = 0; k < array.GetLength(1); k++)
+                for (int j = 0; j < array.GetLength(0) - 1; j++)
+                    for (int i = j + 1; i < array.GetLength(0); i++)
+                        if (array[i, k] < array[j, k])
+                        {
+                            Temp = array[i, k];
+                            array[i, k] = array[j, k];
+                            array[j, k] = Temp;
+                        }
+        }
  
      
-//             int[,] arr = Input();
-//             Console.WriteLine("Исходный массив:");
-//             printArray(arr);
-//             Reverse(arr);
-//             Console.WriteLine("Отсортированный массив:");
-//             printArray(arr);
-//             Console.ReadKey();
+            int[,] arr = Input();
+            Console.WriteLine("Исходный массив:");
+            printArray(arr);
+            Reverse(arr);
+            Console.WriteLine("Отсортированный массив:");
+            printArray(arr);
+            // Console.ReadKey();
         
 
