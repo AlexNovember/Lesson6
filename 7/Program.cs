@@ -89,49 +89,122 @@
 // Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
 
 
-Console.Write("Введите количество строк массива: ");
-int n = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите количество столбцов массива: ");
-int m = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Введите количество строк массива: ");
+// int n = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Введите количество столбцов массива: ");
+// int m = Convert.ToInt32(Console.ReadLine());
 
-int[,] numbers = new int[n, m];
+// int[,] numbers = new int[n, m];
 
-FillArrayRandomNumbers(numbers);
-PrintArray(numbers);
+// FillArrayRandomNumbers(numbers);
+// PrintArray(numbers);
 
-Console.WriteLine("Cреднее арифметическое каждого столбца:");
-for (int j = 0; j < numbers.GetLength(1); j++)
-{
-    double average = 0;
-    for (int i = 0; i < numbers.GetLength(0); i++)
-    {
-        average = (average + numbers[i, j]);
-    }
-    average = average / n;
-    Console.Write(average + "; ");
+// Console.WriteLine("Cреднее арифметическое каждого столбца:");
+// for (int j = 0; j < numbers.GetLength(1); j++)
+// {
+//     double average = 0;
+//     for (int i = 0; i < numbers.GetLength(0); i++)
+//     {
+//         average = (average + numbers[i, j]);
+//     }
+//     average = average / n;
+//     Console.Write(average + "; ");
     
-}
-Console.WriteLine();
+// }
+// Console.WriteLine();
 
-void FillArrayRandomNumbers(int[,] array)
-{
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            array[i, j] = new Random().Next(0, 10);
-        }
-    }
-}
+// void FillArrayRandomNumbers(int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             array[i, j] = new Random().Next(0, 10);
+//         }
+//     }
+// }
 
-void PrintArray(int[,] array)
-{
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-            for (int j = 0; j < array.GetLength(1); j++)
-        {
-            Console.Write("{0,3}", array[i, j]);
-        }
-            Console.WriteLine();
-    }
-}
+// void PrintArray(int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//             for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             Console.Write("{0,3}", array[i, j]);
+//         }
+//             Console.WriteLine();
+//     }
+// }
+
+// Задача HARD SORT.
+// Задайте двумерный массив из целых чисел. 
+// Количество строк и столбцов задается с клавиатуры. 
+// Отсортировать элементы по возрастанию слева направо и сверху вниз.
+// Например, задан массив:
+// 1 4 7 2
+// 5 9 10 3
+// После сортировки
+// 1 2 3 4
+// 5 7 9 10
+// 5 7 9 10
+
+
+// Console.Clear();
+// int[,] Input()
+        
+//         {
+//             Console.Write("Введите размерность массива (N x M): \nN = ");
+//             int n = Convert.ToInt32(Console.ReadLine());
+//             Console.Write("M = ");
+//             int m = Convert.ToInt32(Console.ReadLine());
+            
+            
+//             int[,] array = new int[n, m];
+//             Random rnd = new Random();
+//             for (int i = 0; i < array.GetLength(0); i++)
+//                 for (int j = 0; j < array.GetLength(1); j++)
+//                     array[i, j] = rnd.Next(0, 20);
+//             return array;
+//         }
+        
+        
+//         void printArray(int[,] array)
+//         {
+//             for (int i = 0; i < array.GetLength(0); i++, Console.WriteLine())
+//                 for (int j = 0; j < array.GetLength(1); j++)
+//                     Console.Write("{0,5}", array[i, j]);
+//         }
+//         static void Reverse(int[,] array)
+//         {
+//             int Temp;
+//             for (int k = 0; k < array.GetLength(0); k++)
+//                 for (int i = 0; i < array.GetLength(1) - 1; i++)
+//                     for (int j = i + 1; j < array.GetLength(1); j++)
+//                         if (array[k, j] < array[k, i])
+//                         {
+//                             Temp = array[k, j];
+//                             array[k, j] = array[k, i];
+//                             array[k, i] = Temp;
+//                         }
+ 
+//             for (int k = 0; k < array.GetLength(1); k++)
+//                 for (int j = 0; j < array.GetLength(0) - 1; j++)
+//                     for (int i = j + 1; i < array.GetLength(0); i++)
+//                         if (array[i, k] < array[j, k])
+//                         {
+//                             Temp = array[i, k];
+//                             array[i, k] = array[j, k];
+//                             array[j, k] = Temp;
+//                         }
+//         }
+ 
+     
+//             int[,] arr = Input();
+//             Console.WriteLine("Исходный массив:");
+//             printArray(arr);
+//             Reverse(arr);
+//             Console.WriteLine("Отсортированный массив:");
+//             printArray(arr);
+//             Console.ReadKey();
+        
+
