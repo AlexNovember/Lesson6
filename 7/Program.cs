@@ -80,40 +80,58 @@
             // }
             
  
+// Задача 52. Задайте двумерный массив из целых чисел. 
+// Найдите среднее арифметическое элементов в каждом столбце.
+// Например, задан массив:
+// 1 4 7 2
+// 5 9 2 3
+// 8 4 2 4
+// Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
 
-//  int[,] someArray = new int[10, 10];
-//     int rows = someArray.GetUpperBound(0) + 1;
-//     int columns = someArray.GetUpperBound(1) + 1;
-//     Random rand = new Random();
-//     for (int i = 0; i < rows; i++)
-//     {
-//         for (int j = 0; j < columns; j++)
-//         {
-//             someArray[i, j] = rand.Next(-100, 100);
-//             Console.Write("{0,4}", someArray[i, j]);
-//         }
-//         Console.WriteLine();
-//     }
-//     for (int i = 0; i < columns; i++)
-//     {
-//         int tmp = someArray[1,  i];
-//         someArray[1, i] = someArray[3, i];
-//         someArray[3, i] = tmp;
- 
-//     }
-//     for (int i = 0; i < rows; i++)
-//     {
-//         int tmp = someArray[i, 2];
-//         someArray[i, 2] = someArray[i, columns - 1];
-//         someArray[i, columns - 1] = tmp;
-//     }
-//     Console.WriteLine("Transformed array: ");
-//     for (int i = 0; i < rows; i++)
-//     {
-//         for (int j = 0; j < columns; j++)
-//         {
-//             Console.Write("{0,4}", someArray[i, j]);
-//         }
-//         Console.WriteLine();
-//     }
 
+Console.Write("Введите количество строк массива: ");
+int n = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите количество столбцов массива: ");
+int m = Convert.ToInt32(Console.ReadLine());
+
+int[,] numbers = new int[n, m];
+
+FillArrayRandomNumbers(numbers);
+PrintArray(numbers);
+
+Console.WriteLine("Cреднее арифметическое каждого столбца:");
+for (int j = 0; j < numbers.GetLength(1); j++)
+{
+    double average = 0;
+    for (int i = 0; i < numbers.GetLength(0); i++)
+    {
+        average = (average + numbers[i, j]);
+    }
+    average = average / n;
+    Console.Write(average + "; ");
+    
+}
+Console.WriteLine();
+
+void FillArrayRandomNumbers(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            array[i, j] = new Random().Next(0, 10);
+        }
+    }
+}
+
+void PrintArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+            for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write("{0,3}", array[i, j]);
+        }
+            Console.WriteLine();
+    }
+}
